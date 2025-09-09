@@ -28,7 +28,6 @@ body {
 .login {
     width: 50%;
     display: flex;
-    display: flex;
     flex-direction: column;
     align-items: center;
     padding:  0 5%;
@@ -72,8 +71,8 @@ body {
     display: flex;
     flex-direction: row !important;
     gap: 10px;
-    align-itemns: left;
-    width
+    align-items: left;
+    width: fit-content;
 }
 
 .input_checkbox input {
@@ -82,7 +81,6 @@ body {
     min-width: 25px;
     margin: 0;
     padding: 0;
-    color: red;
     accent-color: #fff
 }
 
