@@ -10,37 +10,37 @@
     <section class="tela_cadastro">
         <div class="cadastro">
             <h1>Cadastre-se</h1>
-            <form class="formulario_cadastro">
+            <form id="formularioCadastro" class="formulario_cadastro">
                 <div>
                     <label for="">Username</label>
-                    <input type="text">
+                    <input id="contaUsername" type="text" re>
                 </div>
                 <div>
                     <label for="">Email</label>
-                    <input type="email">
+                    <input id="contaEmail" type="email">
                 </div>
                 <div>
                     <label for="">Password</label>
-                    <input type="password">
+                    <input id="contaSenha" type="password">
                 </div>
                 <div class="input_dividido">
                     <div>
                         <label for="">Idade</label>
-                        <input type="text">
+                        <input id="contaIdade" min="14" max="99" step="1" type="number">
                     </div>
                     <div>
                         <label for="">Posição</label>
-                        <input type="text">
+                        <input id="contaPosicao"type="text">
                     </div>
                 </div>
                 <div class="input_dividido">
                     <div>
                         <label for="">Cidade</label>
-                        <input type="text">
+                        <input id="contaCidade" type="text">
                     </div>
                     <div>
-                        <label for="">URL da Foto</label>
-                        <input type="text">
+                        <label for="">Foto</label>
+                        <input id="contaFoto" type="url">
                     </div>
                 </div>
                 <div class="cadastrar">
@@ -53,4 +53,6 @@
         </div>
     </section>
 </body>
+
+<script src="../app/app.js"></script>
 </html>
