@@ -10,14 +10,14 @@
     <section class="tela_login">
         <div class="login">
             <h1>Login in</h1>
-            <form class="formulario_login">
+            <form id="formularioLogin">
                 <div>
                     <label for="">Email adress or user name</label>
-                    <input type="text">
+                    <input type="email" id="loginEmail" placeholder="email" required>
                 </div>
                 <div>
                     <label for="">Password</label>
-                    <input type="password">
+                    <input type="password" id="loginSenha" placeholder="senha" required>
                 </div>
                 <div class="input_checkbox">
                     <input type="checkbox">
@@ -28,16 +28,17 @@
                     <label for="">By continuing, you agree to the terms of use and Privacy Policy</label>
                 </div>
                 <div class="logar">
-                    <button>Log in</button>
+                    <button type="submit">Log in</button>
                 </div>
             </form>
             <a href="">Esqueceu a senha?</a>
             <div class="barra"></div>
-            <a href="">Ainda não tem cadastro?</a>
+            <p>Ainda não tem conta? <a href="cadastro.html">Cadastrar-se</a></p>
         </div>
         <div class="imagem_ilustrativa">
             <img src="../assets/futebol feminino-marilia-marília cruzeiro-gabi portilho-1729432441.jpg" alt="Jogadora">
         </div>
     </section>
+    <script src="../app/app.js"></script>
 </body>
 </html>
