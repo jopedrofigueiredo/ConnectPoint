@@ -1,13 +1,5 @@
 let contas = [
-    {
-        username: "",
-        email: "",
-        senha: "",
-        idade: "",
-        posicao: "",
-        cidade: "",
-        foto: ""
-    }
+    {}
 ]
 
 window.onload = function () {
@@ -15,6 +7,7 @@ window.onload = function () {
 }
 
 document.getElementById("formularioCadastro").addEventListener("submit", criarConta);
+document.getElementById("btn-logar").addEventListener("submit", logar);
 
 // Criar conta
 function criarConta(e) {
@@ -56,5 +49,25 @@ function carregarContas() {
     let contasSalvas = localStorage.getItem("contas");
     if (contasSalvas) {
         contas = JSON.parse(contasSalvas)
+    }
+}
+
+function logar(e) {
+    e.preventDefault();
+
+    let loginUsuario = document.getElementById("loginUsuario").value;
+    let loginSenha = document.getElementById("loginSenha").value;
+
+    let contas = JSON.parse(localStorage.getItem("contas")) || [];
+
+    let conta = contas.find(c => (c.email === loginUsuario || c.username === loginUsuario ) && c.senha === loginSenha);
+
+    if (conta) {
+        alert("login realizado");
+        localStorage.setItem("loggedUser", JSON.stringify(user));
+
+        window.location.href = "index.html";
+    } else {
+        alert("Usuário inválido");
     }
 }
