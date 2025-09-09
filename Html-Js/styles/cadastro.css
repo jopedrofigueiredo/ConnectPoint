@@ -7,7 +7,7 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-.tela_login {
+.tela_cadastro {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -25,93 +25,43 @@ body {
     height: 100%;
 }
 
-.login {
+.cadastro {
     width: 50%;
     display: flex;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding:  0 5%;
+    padding: 0 5%;
     padding-top: 25px;
 }
 
-.login h1 {
+.cadastro h1 {
     font-size: 28px;
     font-family: 'Montserrat', sans-serif;
 }
 
-.formulario_login {
+.formulario_cadastro {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 15px;
     align-items: left;
 }
 
-.formulario_login div {
+.formulario_cadastro div {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.formulario_login div label {
+.formulario_cadastro div label {
     font-size: 22px;
-
-
 }
 
-.formulario_login input {
+.formulario_cadastro input {
     border: 2px solid #fff;
     border-radius: 6px;
     height: 30px;
     background-color: transparent;
     color: #fff;
     font-size: 16px;
-}
-
-.input_checkbox {
-    display: flex;
-    flex-direction: row !important;
-    gap: 10px;
-    align-itemns: left;
-    width
-}
-
-.input_checkbox input {
-    width: fit-content;
-    min-height: 25px;
-    min-width: 25px;
-    margin: 0;
-    padding: 0;
-    color: red;
-    accent-color: #fff
-}
-
-.logar {
-    align-items: center
-}
-
-.logar button {
-    width: 50%;
-    border-radius: 12px;   
-    background-color: darkorange;
-    border: 1px solid #ccc;
-    font-size: 20px;
-    color: #fff;
-    padding: 8px 0;
-}
-
-.login a {
-    text_align: center;
-    font-size:20px;
-    color: #fff;
-    text-decoration: none;
-    margin: 20px 0;
-}
-
-.barra {
-    margin-top: 20px;
-    height: 3px;
-    background-color: #f2f2f2;
-    width: 75%;
-
 }
