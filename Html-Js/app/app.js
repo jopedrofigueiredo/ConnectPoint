@@ -34,7 +34,8 @@ function criarConta(e) {
         idade: idade,
         posicao: posicao,
         cidade: cidade,
-        foto: foto
+        foto: foto,
+        idConta: (contas.length +1)
     };
 
     contas.unshift(conta);

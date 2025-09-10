@@ -8,6 +8,16 @@ body {
     height: 100%;
 }
 
+@media (max-width: 667px) {
+    .imagem_ilustrativa {
+        display: none;
+    }
+
+    .cadastro {
+        width: 100% !important;
+    }
+}
+
 .tela_cadastro {
     display: flex;
     flex-direction: row;

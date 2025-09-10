@@ -8,6 +8,16 @@ body {
     height: 100%;
 }
 
+@media (max-width: 667px) {
+    .imagem_ilustrativa {
+        display: none;
+    }
+
+    .login {
+        width: 100% !important;
+    }
+}
+
 .tela_login {
     display: flex;
     flex-direction: row;
