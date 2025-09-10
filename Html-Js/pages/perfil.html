@@ -3,28 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perfil</title>
+  <title>Perfil e Feed</title>
   <link rel="stylesheet" href="../styles/perfil.css">
 </head>
 <body>
-  <section class="perfil">
-    <div class="perfil-card">
-      <img id="perfilFoto" src="../assets/default.png" alt="Foto de perfil">
+  <div class="container">
+    <!-- Sidebar Perfil -->
+    <aside class="sidebar">
+      <div class="perfil-card">
+        <img id="perfilFoto" src="../assets/default.png" alt="Foto de perfil">
+        <h2 id="perfilNome"></h2>
+        <p><strong>Email:</strong> <span id="perfilEmail"></span></p>
+        <p><strong>Idade:</strong> <span id="perfilIdade"></span></p>
+        <p><strong>Posição:</strong> <span id="perfilPosicao"></span></p>
+        <p><strong>Cidade:</strong> <span id="perfilCidade"></span></p>
 
-      <h2 id="perfilNome"></h2>
-      <p><strong>Email:</strong> <span id="perfilEmail"></span></p>
-      <p><strong>Idade:</strong> <span id="perfilIdade"></span></p>
-      <p><strong>Posição:</strong> <span id="perfilPosicao"></span></p>
-      <p><strong>Cidade:</strong> <span id="perfilCidade"></span></p>
-
-      <div class="botoes">
-        <button id="btnEditar" onclick="entrarEdicao()">Editar</button>
-        <button id="btnSalvar" onclick="salvarEdicao()" style="display:none;">Salvar</button>
-        <button id="btnCancelar" onclick="cancelarEdicao()" style="display:none;">Cancelar</button>
-        <button onclick="logout()">Sair</button>
+        <div class="botoes">
+          <button id="btnEditar" onclick="entrarEdicao()">Editar</button>
+          <button id="btnSalvar" onclick="salvarEdicao()" style="display:none;">Salvar</button>
+          <button id="btnCancelar" onclick="cancelarEdicao()" style="display:none;">Cancelar</button>
+          <button onclick="logout()">Sair</button>
+        </div>
       </div>
-    </div>
-  </section>
+    </aside>
+
+    <!-- Feed de Jogadoras -->
+    <main class="feed">
+      <h2>Jogadoras</h2>
+      <div id="listaJogadoras" class="cards-container"></div>
+    </main>
+  </div>
 
   <script src="../app/app.js"></script>
   <script src="../app/perfil.js"></script>

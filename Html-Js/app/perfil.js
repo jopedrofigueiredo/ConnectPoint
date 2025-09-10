@@ -11,6 +11,7 @@ window.onload = function () {
   }
 
   mostrarPerfil();
+  carregarFeed();
 };
 
 function mostrarPerfil() {
@@ -25,9 +26,31 @@ function mostrarPerfil() {
   }
 }
 
+function carregarFeed() {
+  let contas = JSON.parse(localStorage.getItem("contas")) || [];
+  let container = document.getElementById("listaJogadoras");
+  container.innerHTML = "";
+
+  contas.forEach(c => {
+    if (c.email !== usuarioLogado.email) { 
+      let card = document.createElement("div");
+      card.classList.add("card-jogadora");
+
+      card.innerHTML = `
+        <img src="${c.foto || "../assets/default.png"}" alt="Foto">
+        <h3>${c.username}</h3>
+        <p><strong>Posição:</strong> ${c.posicao}</p>
+        <p><strong>Idade:</strong> ${c.idade}</p>
+        <p><strong>Cidade:</strong> ${c.cidade}</p>
+      `;
+
+      container.appendChild(card);
+    }
+  });
+}
+
 function entrarEdicao() {
   modoEdicao = true;
-
 
   document.getElementById("perfilNome").innerHTML =
     `<input type="text" id="editNome" value="${usuarioLogado.username}">`;
@@ -41,8 +64,8 @@ function entrarEdicao() {
     `<input type="text" id="editCidade" value="${usuarioLogado.cidade}">`;
 
   document.getElementById("btnEditar").style.display = "none";
-  document.getElementById("btnSalvar").style.display = "inline-block";
-  document.getElementById("btnCancelar").style.display = "inline-block";
+  document.getElementById("btnSalvar").style.display = "block";
+  document.getElementById("btnCancelar").style.display = "block";
 }
 
 function salvarEdicao() {
@@ -66,8 +89,9 @@ function salvarEdicao() {
 
   modoEdicao = false;
   mostrarPerfil();
+  carregarFeed();
 
-  document.getElementById("btnEditar").style.display = "inline-block";
+  document.getElementById("btnEditar").style.display = "block";
   document.getElementById("btnSalvar").style.display = "none";
   document.getElementById("btnCancelar").style.display = "none";
 
@@ -78,7 +102,7 @@ function cancelarEdicao() {
   modoEdicao = false;
   mostrarPerfil();
 
-  document.getElementById("btnEditar").style.display = "inline-block";
+  document.getElementById("btnEditar").style.display = "block";
   document.getElementById("btnSalvar").style.display = "none";
   document.getElementById("btnCancelar").style.display = "none";
 }
