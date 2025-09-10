@@ -4,31 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../styles/login.css">
+    <link rel="stylesheet" href="../styles/login.css">    
 </head>
 <body>
     <section class="tela_login">
         <div class="login">
             <h1>Login </h1>
-            <form class="formulario_login">
+            <form id="formularioLogin" class="formulario_login">
                 <div>
-                    <label for="">Email adress or user name</label>
+                    <label for="loginUsuario">Email adress or user name</label>
                     <input id="loginUsuario" type="text">
                 </div>
                 <div>
-                    <label for="">Password</label>
-                    <input id="loginSenha" type="password">
+                    <label for="LoginSenha">Password</label>
+                    <input id="loginSenha" type="password" autocomplete="on">
                 </div>
                 <div class="input_checkbox">
-                    <input type="checkbox">
-                    <label for="">Remember me</label>
+                    <input id="remember" type="checkbox">
+                    <label for="remember">Remember me</label>
                 </div>
-                <div class="input_checkbox">
-                    <input type="checkbox" required>
-                    <label for="">By continuing, you agree to the terms of use and Privacy Policy</label>
-                </div>
-                <div id="btn-logar" class="logar">
-                    <button>Login</button>
+
+                <div class="logar">
+                    <button type="submit" id="btn-logar">Login</button>
                 </div>
             </form>
             <a href="">Esqueceu a senha?</a>
@@ -40,4 +37,6 @@
         </div>
     </section>
 </body>
+
+<script src="../app/app.js" defer></script>
 </html>

@@ -12,41 +12,47 @@
             <h1>Cadastre-se</h1>
             <form id="formularioCadastro" class="formulario_cadastro">
                 <div>
-                    <label for="">Username</label>
+                    <label for="contaUsername">Username</label>
                     <input id="contaUsername" type="text" re>
                 </div>
                 <div>
-                    <label for="">Email</label>
+                    <label for="contaEmail">Email</label>
                     <input id="contaEmail" type="email">
                 </div>
                 <div>
-                    <label for="">Password</label>
+                    <label for="contaSenha">Password</label>
                     <input id="contaSenha" type="password">
                 </div>
                 <div class="input_dividido">
                     <div>
-                        <label for="">Idade</label>
+                        <label for="contaIdade">Idade</label>
                         <input id="contaIdade" min="14" max="99" step="1" type="number">
                     </div>
                     <div>
-                        <label for="">Posição</label>
+                        <label for="contaPosicao">Posição</label>
                         <input id="contaPosicao"type="text">
                     </div>
                 </div>
                 <div class="input_dividido">
                     <div>
-                        <label for="">Cidade</label>
+                        <label for="contaCidade">Cidade</label>
                         <input id="contaCidade" type="text">
                     </div>
                     <div>
-                        <label for="">Foto</label>
+                        <label for="contaFoto">Foto</label>
                         <input id="contaFoto" type="url">
                     </div>
                 </div>
                 <div class="cadastrar">
                     <button>Cadastrar</button>
                 </div>
+                <div class="input_checkbox">
+                  <input id="privacyPolicy" type="checkbox" required>
+                  <label for="privacyPolicy">By continuing, you agree to the terms of use and Privacy Policy</label>
+                </div>
             </form>
+            <div class="barra"></div>             
+            <a href="login.html">Faça seu login aqui</a>
         </div>
         <div class="imagem_ilustrativa">
             <img src="" alt="Jogadora">
@@ -54,5 +60,5 @@
     </section>
 </body>
 
-<script src="../app/app.js"></script>
+<script src="../app/app.js" defer></script>
 </html>

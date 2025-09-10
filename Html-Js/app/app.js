@@ -1,13 +1,19 @@
-let contas = [
-    {}
-]
+let contas = []
 
 window.onload = function () {
     carregarContas();
 }
 
-document.getElementById("formularioCadastro").addEventListener("submit", criarConta);
-document.getElementById("btn-logar").addEventListener("submit", logar);
+let formularioCadastro = document.getElementById("formularioCadastro");
+    if (formularioCadastro) {
+      formularioCadastro.addEventListener("submit", criarConta);
+    }
+
+let formularioLogin = document.getElementById("formularioLogin");
+    if (formularioLogin) {
+      formularioLogin.addEventListener("submit", logar);
+    }
+
 
 // Criar conta
 function criarConta(e) {
@@ -36,6 +42,7 @@ function criarConta(e) {
     console.log(contas);
 
     document.getElementById("formularioCadastro").reset();
+    alert("Cadastro completo!");
 }
 
 
@@ -56,16 +63,17 @@ function logar(e) {
     e.preventDefault();
 
     let loginUsuario = document.getElementById("loginUsuario").value;
+    console.log(loginUsuario);
     let loginSenha = document.getElementById("loginSenha").value;
+    console.log(loginSenha);
 
-    let contas = JSON.parse(localStorage.getItem("contas")) || [];
+    //let contas = JSON.parse(localStorage.getItem("contas")) || [];
 
-    let conta = contas.find(c => (c.email === loginUsuario || c.username === loginUsuario ) && c.senha === loginSenha);
+    let user = contas.find(c => (c.email === loginUsuario || c.username === loginUsuario) && c.senha === loginSenha);
 
-    if (conta) {
-        alert("login realizado");
-        localStorage.setItem("loggedUser", JSON.stringify(user));
-
+    if (user) {
+        localStorage.setItem("logados", JSON.stringify(user));
+        alert("acesso liberado");
         window.location.href = "index.html";
     } else {
         alert("Usuário inválido");
