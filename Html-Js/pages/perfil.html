@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perfil e Feed</title>
+  <title>Painel</title>
   <link rel="stylesheet" href="../styles/perfil.css">
 </head>
 <body>
-  <div class="container">
-    <!-- Sidebar Perfil -->
-    <aside class="sidebar">
+  <button id="toggleSidebar">☰ Perfil</button>
+
+  <section class="container">
+    <aside class="sidebar" id="sidebar">
       <div class="perfil-card">
         <img id="perfilFoto" src="../assets/default.png" alt="Foto de perfil">
         <h2 id="perfilNome"></h2>
@@ -20,19 +21,18 @@
 
         <div class="botoes">
           <button id="btnEditar" onclick="entrarEdicao()">Editar</button>
-          <button id="btnSalvar" onclick="salvarEdicao()" style="display:none;">Salvar</button>
-          <button id="btnCancelar" onclick="cancelarEdicao()" style="display:none;">Cancelar</button>
+          <button id="btnSalvar" style="display:none;" onclick="salvarEdicao()">Salvar</button>
+          <button id="btnCancelar" style="display:none;" onclick="cancelarEdicao()">Cancelar</button>
           <button onclick="logout()">Sair</button>
         </div>
       </div>
     </aside>
 
-    <!-- Feed de Jogadoras -->
     <main class="feed">
       <h2>Jogadoras</h2>
-      <div id="listaJogadoras" class="cards-container"></div>
+      <div class="cards-container" id="cardsFeed"></div>
     </main>
-  </div>
+  </section>
 
   <script src="../app/app.js"></script>
   <script src="../app/perfil.js"></script>

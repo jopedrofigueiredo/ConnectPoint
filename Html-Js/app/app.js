@@ -1,89 +1,73 @@
-let contas = [
-  {
-    username: "",
-    email: "",
-    senha: "",
-    idade: "",
-    posicao: "",
-    cidade: "",
-    foto: ""
-  }
-];
+let contas = []
 
-window.onload = function () {
-  carregarContas();
+window.onload = () => {
+  carregarContas()
 
-  let formCadastro = document.getElementById("formularioCadastro");
+  const formCadastro = document.getElementById("formularioCadastro")
   if (formCadastro) {
-    formCadastro.addEventListener("submit", criarConta);
+    formCadastro.addEventListener("submit", criarConta)
   }
 
-
-  let formLogin = document.getElementById("formularioLogin");
+  const formLogin = document.getElementById("formularioLogin")
   if (formLogin) {
-    formLogin.addEventListener("submit", login);
+    formLogin.addEventListener("submit", login)
   }
-};
-
+}
 
 function criarConta(e) {
-  e.preventDefault();
+  e.preventDefault()
 
-  let username = document.getElementById('contaUsername').value;
-  let email = document.getElementById('contaEmail').value;
-  let senha = document.getElementById('contaSenha').value;
-  let idade = document.getElementById('contaIdade').value;
-  let posicao = document.getElementById('contaPosicao').value;
-  let cidade = document.getElementById('contaCidade').value;
-  let foto = document.getElementById('contaFoto').value;
+  const username = document.getElementById("contaUsername").value
+  const email = document.getElementById("contaEmail").value
+  const senha = document.getElementById("contaSenha").value
+  const idade = document.getElementById("contaIdade").value
+  const posicao = document.getElementById("contaPosicao").value
+  const cidade = document.getElementById("contaCidade").value
+  const foto = document.getElementById("contaFoto").value
 
-
-  let existe = contas.find(c => c.email === email);
+  const existe = contas.find((c) => c.email === email)
   if (existe) {
-    alert("E-mail já cadastrado!");
-    return;
+    alert("E-mail já cadastrado!")
+    return
   }
 
-  let conta = { username, email, senha, idade, posicao, cidade, foto };
+  const conta = { username, email, senha, idade, posicao, cidade, foto }
 
-  contas.unshift(conta);
-  salvarConta();
-  alert("Cadastro realizado com sucesso!");
-  window.location.href = "login.html"; 
+  contas.push(conta)
+  salvarConta()
+  alert("Cadastro realizado com sucesso!")
+  window.location.href = "login.html"
 }
-
 
 function login(e) {
-  e.preventDefault();
+  e.preventDefault()
 
-  let email = document.getElementById("loginEmail").value;
-  let senha = document.getElementById("loginSenha").value;
+  const email = document.getElementById("loginEmail").value
+  const senha = document.getElementById("loginSenha").value
 
-  let usuario = contas.find(c => c.email === email && c.senha === senha);
+  const usuario = contas.find((c) => c.email === email && c.senha === senha)
 
   if (usuario) {
-    localStorage.setItem("logado", JSON.stringify(usuario));
-    alert("Login realizado com sucesso!");
-    window.location.href = "perfil.html";
+    localStorage.setItem("logado", JSON.stringify(usuario))
+    alert("Login realizado com sucesso!")
+    window.location.href = "perfil.html"
   } else {
-    alert("Email ou senha incorretos!");
+    alert("Email ou senha incorretos!")
   }
 }
 
-
 function logout() {
-  localStorage.removeItem("logado");
-  window.location.href = "login.html";
+  localStorage.removeItem("logado")
+  window.location.href = "login.html"
 }
 
 function salvarConta() {
-  localStorage.setItem("contas", JSON.stringify(contas));
+  localStorage.setItem("contas", JSON.stringify(contas))
 }
 
-
 function carregarContas() {
-  let contasSalvas = localStorage.getItem("contas");
+  const contasSalvas = localStorage.getItem("contas")
   if (contasSalvas) {
-    contas = JSON.parse(contasSalvas);
+    contas = JSON.parse(contasSalvas)
   }
 }

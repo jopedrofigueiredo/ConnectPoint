@@ -1,22 +1,39 @@
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
   background: #f4f4f9;
-  margin: 0;
-  padding: 0;
 }
 
 .container {
   display: flex;
   height: 100vh;
+  overflow: hidden;
 }
 
-/* Sidebar (Perfil) */
+#toggleSidebar {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #2575fc;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
 .sidebar {
   width: 280px;
   background: #fff;
   border-right: 1px solid #ddd;
   padding: 20px;
   box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.sidebar.hidden {
+  transform: translateX(-100%);
 }
 
 .perfil-card {
@@ -63,8 +80,6 @@ body {
 .botoes button:hover {
   background: #1b5fd9;
 }
-
-/* Feed */
 
 .feed {
   flex: 1;
