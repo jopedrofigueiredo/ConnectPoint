@@ -4,6 +4,13 @@ window.onload = function () {
     carregarContas();
 }
 
+if (window.location.pathname.endsWith("index.html")) {
+    let userLogado = sessionStorage.getItem("logado");
+    if (!userLogado) {
+        window.location.href = "/html-js/pages/login.html";
+    }
+}
+
 let formularioCadastro = document.getElementById("formularioCadastro");
     if (formularioCadastro) {
       formularioCadastro.addEventListener("submit", criarConta);
@@ -14,6 +21,11 @@ let formularioLogin = document.getElementById("formularioLogin");
       formularioLogin.addEventListener("submit", logar);
     }
 
+
+let btnLogOut = document.getElementById("logout");
+    if (btnLogOut) {
+      btnLogOut.addEventListener("click", logOut);
+    }
 
 // Criar conta
 function criarConta(e) {
@@ -73,10 +85,15 @@ function logar(e) {
     let user = contas.find(c => (c.email === loginUsuario || c.username === loginUsuario) && c.senha === loginSenha);
 
     if (user) {
-        localStorage.setItem("logados", JSON.stringify(user));
+        sessionStorage.setItem("logado", JSON.stringify(user));
         alert("acesso liberado");
-        window.location.href = "index.html";
+        window.location.href = "../index.html";
     } else {
         alert("Usuário inválido");
     }
+}
+
+function logOut() {
+    sessionStorage.removeItem("logado");
+    window.location.href = "./pages/login.html"
 }
