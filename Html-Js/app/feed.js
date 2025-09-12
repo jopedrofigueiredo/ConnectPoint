@@ -47,7 +47,7 @@ const feedExemplo = [
 ]
 
 window.onload = () => {
-  const usuarioLogado = JSON.parse(localStorage.getItem("logado"))
+  const usuarioLogado = JSON.parse(sessionStorage.getItem("logado"))
 
   if (!usuarioLogado) {
     alert("Você precisa estar logado para acessar o feed!")
@@ -60,7 +60,7 @@ window.onload = () => {
 
 function carregarFeed() {
   const contas = JSON.parse(localStorage.getItem("contas")) || []
-  const usuarioLogado = JSON.parse(localStorage.getItem("logado"))
+  const usuarioLogado = JSON.parse(sessionStorage.getItem("logado"))
 
   const outrasJogadoras = contas.filter(
     (c) => c.email !== usuarioLogado.email && c.username !== usuarioLogado.username && c.username !== "" && c.username,
@@ -113,7 +113,6 @@ function renderizarFeed() {
       </div>
     `
 
-    // Adiciona animação de entrada
     card.style.opacity = "0"
     card.style.transform = "translateY(20px)"
     container.appendChild(card)
@@ -145,7 +144,7 @@ function filtrarJogadoras() {
 
 function logout() {
   if (confirm("Tem certeza que deseja sair?")) {
-    localStorage.removeItem("logado")
+    sessionStorage.removeItem("logado")
     window.location.href = "login.html"
   }
 }

@@ -2,7 +2,7 @@ let usuarioLogado
 let modoEdicao = false
 
 window.onload = () => {
-  usuarioLogado = JSON.parse(localStorage.getItem("logado"))
+  usuarioLogado = JSON.parse(sessionStorage.getItem("logado"))
 
   if (!usuarioLogado) {
     alert("Você precisa estar logado para acessar o perfil!")
@@ -76,7 +76,7 @@ function salvarEdicao() {
     localStorage.setItem("contas", JSON.stringify(contas))
   }
 
-  localStorage.setItem("logado", JSON.stringify(usuarioLogado))
+  sessionStorage.setItem("logado", JSON.stringify(usuarioLogado))
 
   modoEdicao = false
   mostrarPerfil()
@@ -99,7 +99,7 @@ function cancelarEdicao() {
 
 function logout() {
   if (confirm("Tem certeza que deseja sair?")) {
-    localStorage.removeItem("logado")
+    sessionStorage.removeItem("logado")
     window.location.href = "login.html"
   }
 }
