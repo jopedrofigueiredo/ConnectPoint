@@ -1,73 +1,98 @@
-let contas = []
+let contas = [];
 
-window.onload = () => {
-  carregarContas()
+// Quando a página carregar
+window.onload = function () {
+    carregarContas();
+    verificarProtecao();
+};
 
-  const formCadastro = document.getElementById("formularioCadastro")
-  if (formCadastro) {
-    formCadastro.addEventListener("submit", criarConta)
-  }
-
-  const formLogin = document.getElementById("formularioLogin")
-  if (formLogin) {
-    formLogin.addEventListener("submit", login)
-  }
+// Protege a página inicial
+function verificarProtecao() {
+    if (window.location.pathname.endsWith("index.html")) {
+        let userLogado = sessionStorage.getItem("logado");
+        if (!userLogado) {
+            window.location.href = "./pages/login.html";
+        }
+    }
 }
 
+// Eventos de cadastro
+let formularioCadastro = document.getElementById("formularioCadastro");
+if (formularioCadastro) {
+    formularioCadastro.addEventListener("submit", criarConta);
+}
+
+// Eventos de login
+let formularioLogin = document.getElementById("formularioLogin");
+if (formularioLogin) {
+    formularioLogin.addEventListener("submit", logar);
+}
+
+// Botão logout
+let btnLogOut = document.getElementById("logout");
+if (btnLogOut) {
+    btnLogOut.addEventListener("click", logOut);
+}
+
+// Criar conta
 function criarConta(e) {
-  e.preventDefault()
+    e.preventDefault();
 
-  const username = document.getElementById("contaUsername").value
-  const email = document.getElementById("contaEmail").value
-  const senha = document.getElementById("contaSenha").value
-  const idade = document.getElementById("contaIdade").value
-  const posicao = document.getElementById("contaPosicao").value
-  const cidade = document.getElementById("contaCidade").value
-  const foto = document.getElementById("contaFoto").value
+    let conta = {
+        username: document.getElementById('contaUsername').value,
+        email: document.getElementById('contaEmail').value,
+        senha: document.getElementById('contaSenha').value,
+        idade: document.getElementById('contaIdade').value,
+        posicao: document.getElementById('contaPosicao').value,
+        cidade: document.getElementById('contaCidade').value,
+        foto: document.getElementById('contaFoto').value,
+        idConta: (contas.length + 1)
+    };
 
-  const existe = contas.find((c) => c.email === email)
-  if (existe) {
-    alert("E-mail já cadastrado!")
-    return
-  }
+    contas.unshift(conta);
+    salvarConta();
 
-  const conta = { username, email, senha, idade, posicao, cidade, foto }
-
-  contas.push(conta)
-  salvarConta()
-  alert("Cadastro realizado com sucesso!")
-  window.location.href = "login.html"
+    document.getElementById("formularioCadastro").reset();
+    alert("Cadastro completo!");
+    window.location.href = "./login.html";
 }
 
-function login(e) {
-  e.preventDefault()
-
-  const email = document.getElementById("loginEmail").value
-  const senha = document.getElementById("loginSenha").value
-
-  const usuario = contas.find((c) => c.email === email && c.senha === senha)
-
-  if (usuario) {
-    localStorage.setItem("logado", JSON.stringify(usuario))
-    alert("Login realizado com sucesso!")
-    window.location.href = "perfil.html"
-  } else {
-    alert("Email ou senha incorretos!")
-  }
-}
-
-function logout() {
-  localStorage.removeItem("logado")
-  window.location.href = "login.html"
-}
-
+// Salvar contas
 function salvarConta() {
-  localStorage.setItem("contas", JSON.stringify(contas))
+    localStorage.setItem("contas", JSON.stringify(contas));
 }
 
+// Carregar contas
 function carregarContas() {
-  const contasSalvas = localStorage.getItem("contas")
-  if (contasSalvas) {
-    contas = JSON.parse(contasSalvas)
-  }
+    let contasSalvas = localStorage.getItem("contas");
+    if (contasSalvas) {
+        contas = JSON.parse(contasSalvas);
+    }
+}
+
+// Login
+function logar(e) {
+    e.preventDefault();
+
+    let loginUsuario = document.getElementById("loginUsuario").value;
+    let loginSenha = document.getElementById("loginSenha").value;
+
+    let user = contas.find(c =>
+        (c.email === loginUsuario || c.username === loginUsuario) &&
+        c.senha === loginSenha
+    );
+
+    if (user) {
+        sessionStorage.setItem("logado", JSON.stringify(user));
+        alert("Acesso liberado!");
+        window.location.href = "perfil.html";
+    } else {
+        alert("Usuário ou senha inválidos.");
+    }
+}
+
+// Logout
+function logOut() {
+    sessionStorage.removeItem("logado");
+    window.location.href = "./pages/login.html";
 }

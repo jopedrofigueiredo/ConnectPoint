@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cadastro</title>
     <link rel="stylesheet" href="../styles/cadastro.css">
 </head>
 <body>
@@ -12,49 +12,52 @@
             <h1>Cadastre-se</h1>
             <form id="formularioCadastro" class="formulario_cadastro">
                 <div>
-                    <label for="">Username</label>
+                    <label for="contaUsername">Username</label>
                     <input id="contaUsername" type="text" required>
                 </div>
                 <div>
-                    <label for="">Email</label>
+                    <label for="contaEmail">Email</label>
                     <input id="contaEmail" type="email" required>
                 </div>
                 <div>
-                    <label for="">Password</label>
+                    <label for="contaSenha">Password</label>
                     <input id="contaSenha" type="password" required>
                 </div>
                 <div class="input_dividido">
                     <div>
-                        <label for="">Idade</label>
-                        <input id="contaIdade" min="14" max="99" step="1" type="number">
+                        <label for="contaIdade">Idade</label>
+                        <input id="contaIdade" min="14" max="99" type="number" required>
                     </div>
                     <div>
-                        <label for="">Posição</label>
-                        <input id="contaPosicao"type="text">
+                        <label for="contaPosicao">Posição</label>
+                        <input id="contaPosicao" type="text" required>
                     </div>
                 </div>
                 <div class="input_dividido">
                     <div>
-                        <label for="">Cidade</label>
-                        <input id="contaCidade" type="text">
+                        <label for="contaCidade">Cidade</label>
+                        <input id="contaCidade" type="text" required>
                     </div>
                     <div>
-                        <label for="">Foto</label>
-                        <input id="contaFoto" type="url">
+                        <label for="contaFoto">Foto</label>
+                        <input id="contaFoto" type="url" required>
                     </div>
                 </div>
                 <div class="cadastrar">
-                    <button>Cadastrar</button>
+                    <button type="submit">Cadastrar</button>
                 </div>
-                <p>Já tem conta? <a href="login.html">Ir para login </a></p>
+                <div class="input_checkbox">
+                    <input id="privacyPolicy" type="checkbox" required>
+                    <label for="privacyPolicy">Concordo com os Termos de Uso e Política de Privacidade</label>
+                </div>
             </form>
+            <div class="barra"></div>
+            <a href="login.html">Já tem conta? Faça login</a>
         </div>
         <div class="imagem_ilustrativa">
-            <img src="../assets/jogadora santos.webp" alt="Jogadora">
+            <img src="" alt="Jogadora">
         </div>
     </section>
-    
 </body>
-
-<script src="../app/app.js"></script>
+<script src="../app/app.js" defer></script>
 </html>
