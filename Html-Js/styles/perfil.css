@@ -74,9 +74,8 @@ body {
 }
 
 .profile-main {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 .profile-card {
@@ -85,6 +84,8 @@ body {
   padding: 40px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 800px;
 }
 
 .profile-header {
@@ -226,9 +227,52 @@ body {
   transform: translateY(-2px);
 }
 
+.stats-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 25px;
+  padding: 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  height: fit-content;
+}
+
+.stats-card h3 {
+  text-align: center;
+  color: #2d3748;
+  margin-bottom: 25px;
+  font-size: 1.5rem;
+}
+
+.stats-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 15px;
+  color: white;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 @media (max-width: 768px) {
   .profile-main {
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
 
   .info-grid {
