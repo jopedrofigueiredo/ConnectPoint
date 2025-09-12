@@ -1,38 +1,42 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Document</title>
     <link rel="stylesheet" href="../styles/login.css">    
 </head>
 <body>
     <section class="tela_login">
         <div class="login">
-            <h1>Login</h1>
+            <h1>Login </h1>
             <form id="formularioLogin" class="formulario_login">
                 <div>
-                    <label for="loginUsuario">Email ou Username</label>
-                    <input id="loginUsuario" type="text" required>
+                    <label for="loginUsuario">Email adress or user name</label>
+                    <input id="loginUsuario" type="text">
                 </div>
                 <div>
-                    <label for="loginSenha">Password</label>
-                    <input id="loginSenha" type="password" autocomplete="on" required>
+                    <label for="LoginSenha">Password</label>
+                    <input id="loginSenha" type="password" autocomplete="on">
                 </div>
                 <div class="input_checkbox">
                     <input id="remember" type="checkbox">
                     <label for="remember">Remember me</label>
                 </div>
+
                 <div class="logar">
                     <button type="submit" id="btn-logar">Login</button>
                 </div>
             </form>
-            <a href="#">Esqueceu a senha?</a>
+            <a href="">Esqueceu a senha?</a>
             <div class="barra"></div>
             <a href="./cadastro.html">Ainda não tem cadastro?</a>
         </div>
-        <div class="imagem_ilustrativa"></div>
+        <div class="imagem_ilustrativa">
+            <!-- <img src="../assets/futebol feminino-marilia-marília cruzeiro-gabi portilho-1729432441.jpg" alt="Jogadora"> -->
+        </div>
     </section>
 </body>
+
 <script src="../app/app.js" defer></script>
 </html>

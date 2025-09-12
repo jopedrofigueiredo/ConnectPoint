@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
+    <title>Document</title>
     <link rel="stylesheet" href="../styles/cadastro.css">
 </head>
 <body>
@@ -26,11 +26,11 @@
                 <div class="input_dividido">
                     <div>
                         <label for="contaIdade">Idade</label>
-                        <input id="contaIdade" min="14" max="99" type="number" required>
+                        <input id="contaIdade" min="14" max="99" step="1" type="number" required>
                     </div>
                     <div>
                         <label for="contaPosicao">Posição</label>
-                        <input id="contaPosicao" type="text" required>
+                        <input id="contaPosicao"type="text" required>
                     </div>
                 </div>
                 <div class="input_dividido">
@@ -44,20 +44,21 @@
                     </div>
                 </div>
                 <div class="cadastrar">
-                    <button type="submit">Cadastrar</button>
+                    <button>Cadastrar</button>
                 </div>
                 <div class="input_checkbox">
-                    <input id="privacyPolicy" type="checkbox" required>
-                    <label for="privacyPolicy"> Concordo com os Termos de Uso e Política de Privacidade</label>
+                  <input id="privacyPolicy" type="checkbox" required>
+                  <label for="privacyPolicy">By continuing, you agree to the terms of use and Privacy Policy</label>
                 </div>
             </form>
-            <div class="barra"></div>
-            <a href="login.html">Já tem conta? Faça login</a>
+            <div class="barra"></div>             
+            <a href="login.html">Faça seu login aqui</a>
         </div>
         <div class="imagem_ilustrativa">
             <img src="" alt="Jogadora">
         </div>
     </section>
 </body>
+
 <script src="../app/app.js" defer></script>
 </html>
