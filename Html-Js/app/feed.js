@@ -1,6 +1,7 @@
 let todasJogadoras = []
 let jogadorasFiltradas = []
 
+
 const feedExemplo = [
   {
     username: "Maria Silva",
@@ -148,3 +149,4 @@ function logout() {
     window.location.href = "login.html"
   }
 }
+
