@@ -1,6 +1,8 @@
 let usuarioLogado
 let modoEdicao = false
 
+const FOTO_PADRAO = "../assets/usuario sem foto.jpg"
+
 window.onload = () => {
   usuarioLogado = JSON.parse(sessionStorage.getItem("logado"))
 
@@ -20,8 +22,11 @@ function mostrarPerfil() {
   document.getElementById("perfilPosicao").innerText = usuarioLogado.posicao || "Não informado"
   document.getElementById("perfilCidade").innerText = usuarioLogado.cidade || "Não informado"
 
-  if (usuarioLogado.foto) {
-    document.getElementById("perfilFoto").src = usuarioLogado.foto
+  const fotoElement = document.getElementById("perfilFoto")
+  if (usuarioLogado.foto && usuarioLogado.foto.trim() !== "") {
+    fotoElement.src = usuarioLogado.foto
+  } else {
+    fotoElement.src = FOTO_PADRAO
   }
 }
 
