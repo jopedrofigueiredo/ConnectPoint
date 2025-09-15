@@ -29,20 +29,20 @@ function entrarEdicao() {
   modoEdicao = true
 
   document.getElementById("perfilNome").innerHTML =
-    `<input type="text" id="editNome" value="${usuarioLogado.username || ""}" placeholder="Seu nome">`
+    `<input type="text" id="editNome" value="${usuarioLogado.username || ""}" class="input_editar_perfil" placeholder="Seu nome">`
   document.getElementById("perfilEmail").innerHTML =
-    `<input type="email" id="editEmail" value="${usuarioLogado.email || ""}" placeholder="Seu email">`
+    `<input type="email" id="editEmail" value="${usuarioLogado.email || ""}" class="input_editar_perfil" placeholder="Seu email">`
   document.getElementById("perfilIdade").innerHTML =
-    `<input type="number" id="editIdade" value="${usuarioLogado.idade || ""}" placeholder="Sua idade">`
-  document.getElementById("perfilPosicao").innerHTML = `<select id="editPosicao">
-      <option value="Goleira" ${usuarioLogado.posicao === "Goleira" ? "selected" : ""}>Goleira</option>
-      <option value="Zagueira" ${usuarioLogado.posicao === "Zagueira" ? "selected" : ""}>Zagueira</option>
-      <option value="Lateral" ${usuarioLogado.posicao === "Lateral" ? "selected" : ""}>Lateral</option>
-      <option value="Meio-campo" ${usuarioLogado.posicao === "Meio-campo" ? "selected" : ""}>Meio-campo</option>
-      <option value="Atacante" ${usuarioLogado.posicao === "Atacante" ? "selected" : ""}>Atacante</option>
+    `<input type="number" id="editIdade" value="${usuarioLogado.idade || ""}" class="input_editar_perfil" placeholder="Sua idade">`
+  document.getElementById("perfilPosicao").innerHTML = `<select id="editPosicao" class="select_editar_perfil">
+      <option class="option_editar_perfil" value="Goleira" ${usuarioLogado.posicao === "Goleira" ? "selected" : ""}>Goleira</option>
+      <option class="option_editar_perfil" value="Zagueira" ${usuarioLogado.posicao === "Zagueira" ? "selected" : ""}>Zagueira</option>
+      <option class="option_editar_perfil" value="Lateral" ${usuarioLogado.posicao === "Lateral" ? "selected" : ""}>Lateral</option>
+      <option class="option_editar_perfil" value="Meio-campo" ${usuarioLogado.posicao === "Meio-campo" ? "selected" : ""}>Meio-campo</option>
+      <option class="option_editar_perfil" value="Atacante" ${usuarioLogado.posicao === "Atacante" ? "selected" : ""}>Atacante</option>
     </select>`
   document.getElementById("perfilCidade").innerHTML =
-    `<input type="text" id="editCidade" value="${usuarioLogado.cidade || ""}" placeholder="Sua cidade">`
+    `<input type="text" id="editCidade" value="${usuarioLogado.cidade || ""}" class="input_editar_perfil" placeholder="Sua cidade">`
 
   document.getElementById("btnEditar").style.display = "none"
   document.getElementById("btnSalvar").style.display = "inline-block"
