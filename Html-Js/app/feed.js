@@ -94,7 +94,7 @@ function renderizarFeed() {
 
     card.innerHTML = `
       <div class="player-header">
-        <img src="${jogadora.foto || "https://randomuser.me/api/portraits/women/1.jpg"}" 
+        <img src="${jogadora.foto || "../assets/usuario sem foto.jpg"}" 
              alt="Foto de ${jogadora.username}" 
              class="player-avatar">
         <div class="player-info">
