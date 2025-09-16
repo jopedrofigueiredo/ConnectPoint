@@ -1,12 +1,12 @@
 let contas = [];
 
-// Quando a página carregar
+
 window.onload = function () {
     carregarContas();
     verificarProtecao();
 };
 
-// Protege a página inicial
+
 function verificarProtecao() {
     if (window.location.pathname.endsWith("index.html")) {
         let userLogado = sessionStorage.getItem("logado");
@@ -16,25 +16,25 @@ function verificarProtecao() {
     }
 }
 
-// Eventos de cadastro
+
 let formularioCadastro = document.getElementById("formularioCadastro");
 if (formularioCadastro) {
     formularioCadastro.addEventListener("submit", criarConta);
 }
 
-// Eventos de login
+
 let formularioLogin = document.getElementById("formularioLogin");
 if (formularioLogin) {
     formularioLogin.addEventListener("submit", logar);
 }
 
-// Botão logout
+
 let btnLogOut = document.getElementById("logout");
 if (btnLogOut) {
     btnLogOut.addEventListener("click", logOut);
 }
 
-// Criar conta
+
 function criarConta(e) {
     e.preventDefault();
 
@@ -57,12 +57,12 @@ function criarConta(e) {
     window.location.href = "./login.html";
 }
 
-// Salvar contas
+
 function salvarConta() {
     localStorage.setItem("contas", JSON.stringify(contas));
 }
 
-// Carregar contas
+
 function carregarContas() {
     let contasSalvas = localStorage.getItem("contas");
     if (contasSalvas) {
@@ -70,7 +70,6 @@ function carregarContas() {
     }
 }
 
-// Login
 function logar(e) {
     e.preventDefault();
 
@@ -91,7 +90,6 @@ function logar(e) {
     }
 }
 
-// Logout
 function logOut() {
     sessionStorage.removeItem("logado");
     window.location.href = "./pages/login.html";

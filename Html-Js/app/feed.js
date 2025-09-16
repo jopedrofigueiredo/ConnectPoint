@@ -114,6 +114,12 @@ function renderizarFeed() {
       </div>
     `
 
+    card.style.cursor = "pointer"
+    card.addEventListener("click", () => {
+      sessionStorage.setItem("perfilSelecionado", JSON.stringify(jogadora))
+      window.open("perfil.html", "_blank")
+    })
+
     card.style.opacity = "0"
     card.style.transform = "translateY(20px)"
     container.appendChild(card)
@@ -125,6 +131,11 @@ function renderizarFeed() {
     }, 100)
   })
 }
+
+card.addEventListener("click", () => {
+  sessionStorage.setItem("perfilSelecionado", JSON.stringify(jogadora))
+  window.open("perfil.html", "_blank")
+})
 
 function filtrarJogadoras() {
   const searchTerm = document.getElementById("searchInput").value.toLowerCase().trim()

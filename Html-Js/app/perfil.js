@@ -1,32 +1,54 @@
-let usuarioLogado
-let modoEdicao = false
-
-const FOTO_PADRAO = "../assets/usuario sem foto.jpg"
+let usuarioLogado = null;
+let modoEdicao = false;
+const FOTO_PADRAO = "../assets/usuario sem foto.jpg";
 
 window.onload = () => {
-  usuarioLogado = JSON.parse(sessionStorage.getItem("logado"))
+  const perfilSelecionado = JSON.parse(sessionStorage.getItem("perfilSelecionado"));
 
-  if (!usuarioLogado) {
-    alert("Você precisa estar logado para acessar o perfil!")
-    window.location.href = "login.html"
-    return
+  if (perfilSelecionado) {
+    sessionStorage.removeItem("perfilSelecionado");
+    usuarioLogado = JSON.parse(sessionStorage.getItem("logado")); 
+    mostrarPerfil(perfilSelecionado);
+  } else {
+    usuarioLogado = JSON.parse(sessionStorage.getItem("logado"));
+
+    if (!usuarioLogado) {
+      alert("Você precisa estar logado para acessar o perfil!");
+      window.location.href = "login.html";
+      return;
+    }
+
+    mostrarPerfil(usuarioLogado);
+  }
+};
+
+
+function mostrarPerfil(perfil = usuarioLogado) {
+  document.getElementById("perfilNome").innerText = perfil.username || "Nome não informado";
+  document.getElementById("perfilEmail").innerText = perfil.email || "Email não informado";
+  document.getElementById("perfilIdade").innerText = perfil.idade || "Não informado";
+  document.getElementById("perfilPosicao").innerText = perfil.posicao || "Não informado";
+  document.getElementById("perfilCidade").innerText = perfil.cidade || "Não informado";
+
+  const fotoElement = document.getElementById("perfilFoto");
+  if (perfil.foto && perfil.foto.trim() !== "") {
+    fotoElement.src = perfil.foto;
+  } else {
+    fotoElement.src = FOTO_PADRAO;
   }
 
-  mostrarPerfil()
-}
+  const btnEditar = document.getElementById("btnEditar");
+  const btnSalvar = document.getElementById("btnSalvar");
+  const btnCancelar = document.getElementById("btnCancelar");
 
-function mostrarPerfil() {
-  document.getElementById("perfilNome").innerText = usuarioLogado.username || "Nome não informado"
-  document.getElementById("perfilEmail").innerText = usuarioLogado.email || "Email não informado"
-  document.getElementById("perfilIdade").innerText = usuarioLogado.idade || "Não informado"
-  document.getElementById("perfilPosicao").innerText = usuarioLogado.posicao || "Não informado"
-  document.getElementById("perfilCidade").innerText = usuarioLogado.cidade || "Não informado"
-
-  const fotoElement = document.getElementById("perfilFoto")
-  if (usuarioLogado.foto && usuarioLogado.foto.trim() !== "") {
-    fotoElement.src = usuarioLogado.foto
+  if (!usuarioLogado || perfil.email !== usuarioLogado.email) {
+    btnEditar.style.display = "none";
+    btnSalvar.style.display = "none";
+    btnCancelar.style.display = "none";
   } else {
-    fotoElement.src = FOTO_PADRAO
+    btnEditar.style.display = "inline-block";
+    btnSalvar.style.display = "none";
+    btnCancelar.style.display = "none";
   }
 }
 
@@ -84,7 +106,7 @@ function salvarEdicao() {
   sessionStorage.setItem("logado", JSON.stringify(usuarioLogado))
 
   modoEdicao = false
-  mostrarPerfil()
+  mostrarPerfil(usuarioLogado) 
 
   document.getElementById("btnEditar").style.display = "inline-block"
   document.getElementById("btnSalvar").style.display = "none"
@@ -95,16 +117,10 @@ function salvarEdicao() {
 
 function cancelarEdicao() {
   modoEdicao = false
-  mostrarPerfil()
+  mostrarPerfil(usuarioLogado)  
 
   document.getElementById("btnEditar").style.display = "inline-block"
   document.getElementById("btnSalvar").style.display = "none"
   document.getElementById("btnCancelar").style.display = "none"
 }
 
-function logout() {
-  if (confirm("Tem certeza que deseja sair?")) {
-    sessionStorage.removeItem("logado")
-    window.location.href = "login.html"
-  }
-}
